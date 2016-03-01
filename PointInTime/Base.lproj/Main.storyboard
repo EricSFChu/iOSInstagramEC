@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="304.5" y="387.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Logged In View-->
         <scene sceneID="8mI-d3-SoX">
             <objects>
-                <viewController id="QR3-hF-uWA" sceneMemberID="viewController">
+                <viewController id="QR3-hF-uWA" customClass="loggedInView" customModule="PointInTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XSS-MS-EXf"/>
                         <viewControllerLayoutGuide type="bottom" id="lVD-ic-N2L"/>
@@ -67,13 +67,22 @@
                     <view key="view" contentMode="scaleToFill" id="JZf-wu-L4r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Z6-IS-yw7">
+                                <rect key="frame" x="309" y="28" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="QR3-hF-uWA" eventType="touchUpInside" id="4Bm-Rr-7k9"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpq-V1-W69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716.5" y="387.5"/>
+            <point key="canvasLocation" x="748.5" y="387.5"/>
         </scene>
     </scenes>
 </document>
