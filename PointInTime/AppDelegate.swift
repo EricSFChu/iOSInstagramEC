@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Parse.initializeWithConfiguration(
                 ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                     configuration.applicationId = "pointInTime"
+                    configuration.clientKey = "powerOverwhelming"
                     configuration.server = "https://pointintime.herokuapp.com/parse"
                 })
             )
