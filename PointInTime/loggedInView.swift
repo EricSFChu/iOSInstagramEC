@@ -12,6 +12,9 @@ import Parse
 
 class loggedInView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let vc = UIImagePickerController()
+    var imageHolder: UIImage!
+    @IBOutlet weak var imageFrame: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         vc.delegate = self
@@ -35,7 +38,8 @@ class loggedInView: UIViewController, UIImagePickerControllerDelegate, UINavigat
             let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             
-            // Do something with the images (based on your use case)
+            imageHolder = originalImage
+            imageFrame.image = originalImage
             
             // Dismiss UIImagePickerController to go back to your original view controller
             dismissViewControllerAnimated(true, completion: nil)
