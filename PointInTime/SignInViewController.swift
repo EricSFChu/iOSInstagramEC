@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    var user: PFUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,11 @@ class SignInViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(userName.text!, password: password.text!) { (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 print("Sign in success")
-                self.performSegueWithIdentifier("loginSegue", sender: nil)
+                self.performSegueWithIdentifier("loggedInSegue", sender: nil)
+                //let upcomingNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier("loggedInView") as! UITabBarController
+                //upcomingNavigationController.presentedViewController
+
+            
             } else {
                 print("Sign in failed: \(error)")
                 if error?.code == 101 {
@@ -49,6 +54,7 @@ class SignInViewController: UIViewController {
             if success {
                 print("Successfully signed up")
                 self.performSegueWithIdentifier("loginSegue", sender: nil)
+               // NSUserDefaults.standardUserDefaults().setObject(self.user, forKey: "user")
             } else {
                 print("Failed to sign up: \(error)")
                 if error?.code == 202 {

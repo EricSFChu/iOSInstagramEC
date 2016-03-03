@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
             
+           // window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Initialize Parse
             // Set applicationId and server based on the values in the Heroku settings.
             // clientKey is not used on Parse open source unless explicitly configured
@@ -27,6 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     configuration.server = "https://pointintime.herokuapp.com/parse"
                 })
             )
+            if PFUser.currentUser() != nil
+            {
+                print("persistence worked \(PFUser.currentUser())")
+                let upcomingNavigationController = storyboard.instantiateViewControllerWithIdentifier("loggedInView") as! UITabBarController
+                self.window?.rootViewController = upcomingNavigationController
+                self.window?.makeKeyAndVisible()
+                
+            }
         return true
     }
     
