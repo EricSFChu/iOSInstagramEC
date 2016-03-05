@@ -32,10 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if PFUser.currentUser() != nil
             {
                 print("persistence worked \(PFUser.currentUser())")
+                /*
                 let upcomingNavigationController = storyboard.instantiateViewControllerWithIdentifier("loggedInView") as! UITabBarController
                 self.window?.rootViewController = upcomingNavigationController
                 self.window?.makeKeyAndVisible()
-                
+                */
             }
         return true
     }

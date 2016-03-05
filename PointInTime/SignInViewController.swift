@@ -18,7 +18,18 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("loggedInSegue", sender: nil)
+        }
+    }
+    override func viewWillAppear(animated: Bool) {
+
     }
 
     @IBAction func onSignIn(sender: AnyObject) {
@@ -53,7 +64,7 @@ class SignInViewController: UIViewController {
         
             if success {
                 print("Successfully signed up")
-                self.performSegueWithIdentifier("loginSegue", sender: nil)
+                self.performSegueWithIdentifier("loggedInSegue", sender: nil)
                // NSUserDefaults.standardUserDefaults().setObject(self.user, forKey: "user")
             } else {
                 print("Failed to sign up: \(error)")

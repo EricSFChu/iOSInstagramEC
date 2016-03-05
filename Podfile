@@ -7,7 +7,7 @@ target 'PointInTime' do
 
 pod ‘Parse’
 pod ‘AFNetworking’
-
+pod ‘MBProgressHUD’
 
 end
 
