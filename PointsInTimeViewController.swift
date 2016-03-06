@@ -42,7 +42,7 @@ class PointsInTimeViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("pointsInTime", forIndexPath: indexPath) as! PointInTimeCell
         let post = posts[indexPath.row]
-        print(post, " This is the post!")
+        //print(post, " This is the post!")
         cell.pointsObject = post
 
         //cell.pointInTime.image = post["media"] as? UIImage

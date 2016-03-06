@@ -18,6 +18,8 @@
 		7AAA54E21C853EA500F6B091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA54E11C853EA500F6B091 /* Assets.xcassets */; };
 		7AAA54E51C853EA500F6B091 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA54E31C853EA500F6B091 /* LaunchScreen.storyboard */; };
 		7AEF13771C8A708D00FE9DBA /* PointInTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF13761C8A708D00FE9DBA /* PointInTime.swift */; };
+		7AFAEE831C8B89F50060BB29 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAEE821C8B89F50060BB29 /* ProfileViewController.swift */; };
+		7AFAEE851C8BBAF20060BB29 /* ParsePictureSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAEE841C8BBAF20060BB29 /* ParsePictureSetter.swift */; };
 		FEC248B655CF77BBD40A8BFA /* Pods_PointInTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B32C8BCF0E614EA6C18D557 /* Pods_PointInTime.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		7AAA54E41C853EA500F6B091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AAA54E61C853EA500F6B091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AEF13761C8A708D00FE9DBA /* PointInTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointInTime.swift; sourceTree = "<group>"; };
+		7AFAEE821C8B89F50060BB29 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = PointInTime/ProfileViewController.swift; sourceTree = "<group>"; };
+		7AFAEE841C8BBAF20060BB29 /* ParsePictureSetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsePictureSetter.swift; sourceTree = "<group>"; };
 		F06F5E77D4FBA07C9E540EAA /* Pods-PointInTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointInTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-PointInTime/Pods-PointInTime.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +71,7 @@
 				7A2379211C88E32A00DBD7DA /* Post.swift */,
 				7A2379251C8927F900DBD7DA /* PointInTimeCell.swift */,
 				7AEF13761C8A708D00FE9DBA /* PointInTime.swift */,
+				7AFAEE841C8BBAF20060BB29 /* ParsePictureSetter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -76,6 +81,7 @@
 			children = (
 				7A5663F61C8557BF003E3172 /* SignInViewController.swift */,
 				7A5663F91C8569E8003E3172 /* loggedInView.swift */,
+				7AFAEE821C8B89F50060BB29 /* ProfileViewController.swift */,
 				7A2379231C89205F00DBD7DA /* PointsInTimeViewController.swift */,
 			);
 			name = "View Controllers";
@@ -251,6 +257,8 @@
 				7A2379241C89205F00DBD7DA /* PointsInTimeViewController.swift in Sources */,
 				7AEF13771C8A708D00FE9DBA /* PointInTime.swift in Sources */,
 				7A5663FA1C8569E8003E3172 /* loggedInView.swift in Sources */,
+				7AFAEE831C8B89F50060BB29 /* ProfileViewController.swift in Sources */,
+				7AFAEE851C8BBAF20060BB29 /* ParsePictureSetter.swift in Sources */,
 				7AAA54DB1C853EA500F6B091 /* AppDelegate.swift in Sources */,
 				7A5663F71C8557BF003E3172 /* SignInViewController.swift in Sources */,
 			);

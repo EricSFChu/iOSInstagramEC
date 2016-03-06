@@ -38,6 +38,15 @@ class Post: NSObject {
         post.saveInBackgroundWithBlock(completion)
     }
     
+    class func postUserProfile(image: UIImage?, withCompletion completion: PFBooleanResultBlock?) {
+        let post = PFObject(className: "Profile")
+        
+        post["name"] = PFUser.currentUser()?.username!
+        resize(image!, newSize: CGSize(width: 100, height: 100))
+        post["profilePicture"] = getPFFileFromImage(image)
+        
+        post.saveInBackgroundWithBlock(completion)
+    }
     /**
      Method to convert UIImage to PFFile
      

@@ -15,6 +15,7 @@ class PointInTimeCell: UITableViewCell {
     @IBOutlet weak var pointInTime: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var dateCreated: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     
      var pointsObject: PFObject! {

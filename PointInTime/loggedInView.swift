@@ -14,6 +14,8 @@ import MBProgressHUD
 class loggedInView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let vc = UIImagePickerController()
     var imageHolder: UIImage!
+    var preload: ParsePictureSetter?
+    var profileObject: PFObject?
     
     @IBOutlet weak var imageFrame: UIImageView!
     @IBOutlet weak var captionField: UITextView!
@@ -31,6 +33,7 @@ class loggedInView: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBAction func onClickAddPhoto(sender: AnyObject) {
         self.presentViewController(vc, animated: true, completion: nil)
     }
+    
     override func viewDidAppear(animated: Bool) {
         
         
@@ -43,7 +46,7 @@ class loggedInView: UIViewController, UIImagePickerControllerDelegate, UINavigat
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             
             imageHolder = originalImage
-            imageFrame.image = originalImage
+            imageFrame.image = editedImage
             
             // Dismiss UIImagePickerController to go back to your original view controller
             dismissViewControllerAnimated(true, completion: nil)
@@ -64,6 +67,33 @@ class loggedInView: UIViewController, UIImagePickerControllerDelegate, UINavigat
             MBProgressHUD.hideHUDForView(self.view, animated: false)
             //print(error)
         }
+    }
+
+    func loadProfile(name: String, completion: (result: PFObject) -> Void) -> PFObject? {
+        var posts1: PFObject?
+        let query = PFQuery(className:"Profile")
+        query.whereKey("name", equalTo: "\(name)")
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        self.profileObject = object
+                        posts1 = object
+                        self.preload = ParsePictureSetter(profileObject: object)
+                        print(object)
+                    }
+                    MBProgressHUD.hideHUDForView(self.view, animated: false)
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+            MBProgressHUD.hideHUDForView(self.view, animated: false)
+        }
+        return posts1
     }
 
     
