@@ -2,7 +2,7 @@
 
 **Point in Time** is a photo sharing app using Parse as its backend.
 
-Time spent: **15** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -20,8 +20,8 @@ The following **optional** features are implemented:
 - [x] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse.
 - [x] User Profiles:
    - [x] Allow the logged in user to add a profile photo
-   - [ ] Display the profile photo with each post
-   - [ ] Tapping on a post's username or profile photo goes to that user's profile page
+   - [x] Display the profile photo with each post
+   - [x] Tapping on a post's username or profile photo goes to that user's profile page
 
 The following **additional** features are implemented:
 
@@ -37,6 +37,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 ![WalkThrough](PointWT1.gif)
+![Addition](PointWT2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

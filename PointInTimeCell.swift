@@ -31,6 +31,7 @@ class PointInTimeCell: UITableViewCell {
             captionLabel.text = point.caption
             dateCreated.text = "\(pointsObject.createdAt!)"
             name.text = point.name
+            profilePicture.image = point.profilePicture
         }
     }
 }

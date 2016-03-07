@@ -18,6 +18,7 @@ class PointInTime: NSObject {
     var commentsCount: Int?
     var name: String?
     var tempCell: PointInTimeCell?
+    var profilePicture: UIImage?
     
     init(pointObject: PFObject) {
         super.init()
@@ -28,7 +29,8 @@ class PointInTime: NSObject {
         likesCount = pointObject["likesCount"] as? Int
         commentsCount = pointObject["commentsCount"] as? Int
         author = pointObject["author"] as! PFUser?
-        name = pointObject["name"] as? String
+        name = pointObject["name"] as? String ?? ""
+        profilePicture = loadProfile(name!)
         
         if let userPicture = pointObject.valueForKey("media")! as? PFFile {
             userPicture.getDataInBackgroundWithBlock({
@@ -42,6 +44,42 @@ class PointInTime: NSObject {
                 }
             })
         }
+    }
+    
+    func loadProfile(name: String) -> UIImage {
+        var posts1: PFObject?
+        var tempImage = UIImage()
+        let query = PFQuery(className:"Profile")
+        query.whereKey("name", equalTo: "\(name)")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    posts1 = objects[0]
+                    print(" loaded profile \(posts1)")
+                    
+                    if let profile = posts1!.valueForKey("profilePicture")! as? PFFile {
+                        profile.getDataInBackgroundWithBlock({
+                            (imageData: NSData?, error: NSError?) -> Void in
+                            if (error == nil) {
+                                let image = UIImage(data:imageData!)
+                                self.profilePicture = image
+                                self.tempCell!.profilePicture.image = image
+                                tempImage = image!
+                                print("Profile Picture Loaded")
+                            }
+                        })
+                    }
+
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+                tempImage = UIImage()
+            }
+        }
+     return tempImage
     }
     
 }
